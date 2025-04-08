@@ -17,14 +17,12 @@ function AppWrapper() {
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
       setSearchQuery('');
-      setMenuOpen(false); // close menu on mobile after search
     }
   };
 
@@ -34,32 +32,19 @@ function App() {
     }
   };
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
   return (
     <div className='text-gray-200'>
       <header className="bg-gray-900 p-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">MovieDb</h2>
-          <button
-            className="md:hidden text-white text-3xl focus:outline-none"
-            onClick={toggleMenu}
-          >
-            ☰
-          </button>
-        </div>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-2xl font-bold flex-shrink-0">MovieDb</h2>
 
-        {/* Navigation menu */}
-        <div className={`flex-col md:flex md:flex-row md:items-center md:justify-between mt-4 md:mt-0 ${menuOpen ? 'flex' : 'hidden'} md:flex`}>
-          <nav className="flex flex-col md:flex-row gap-4 mb-4 md:mb-0">
-            <Link to="/" onClick={() => setMenuOpen(false)}>Popular</Link>
-            <Link to="/top-rated" onClick={() => setMenuOpen(false)}>Top Rated</Link>
-            <Link to="/upcoming" onClick={() => setMenuOpen(false)}>Upcoming</Link>
+          <nav className="flex gap-4 flex-wrap">
+            <Link to="/" className="hover:text-lime-400">Popular</Link>
+            <Link to="/top-rated" className="hover:text-lime-400">Top Rated</Link>
+            <Link to="/upcoming" className="hover:text-lime-400">Upcoming</Link>
           </nav>
 
-          <div className="flex w-full md:w-auto">
+          <div className="flex flex-grow md:flex-grow-0 max-w-full md:max-w-md">
             <input
               type="text"
               value={searchQuery}
