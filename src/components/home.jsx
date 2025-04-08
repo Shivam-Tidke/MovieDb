@@ -22,7 +22,7 @@ export const Home = () => {
     <div className="p-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
       {movies.map((movie) => (
         <Link to={`/movie/${movie.id}`}>
-        <div key={movie.id} className="bg-gray-800 rounded shadow-lg p-2 hover:shadow-xl transition duration-300 ease-in-out">
+        <div key={movie.id} className="bg-gray-800 rounded shadow-lg p-2 hover:scale-105 hover:shadow-xl transition-transform duration-300">
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
