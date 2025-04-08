@@ -21,7 +21,7 @@ export const MovieDetail = () => {
             .catch((err) => console.error(err));
     }, [id]);
 
-    if (!movie) return <div className="text-center mt-10 text-white">Loading...</div>;
+    if (!movie) return <div className="text-center mt-10 text-white">Loading.....</div>;
 
     return (
         <div className=" text-white min-h-screen px-4 pb-10">
