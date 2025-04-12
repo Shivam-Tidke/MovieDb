@@ -55,7 +55,7 @@ function App() {
             />
             <button
               onClick={handleSearch}
-              className="bg-lime-500 px-4 text-white font-bold rounded-r hover:bg-lime-600 hover:shadow-lg transition duration-150 ease-in-out"
+              className="bg-lime-400 px-4 text-white font-bold rounded-r hover:bg-lime-600 hover:shadow-lg transition duration-150 ease-in-out"
             >
               Search
             </button>
